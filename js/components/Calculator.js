@@ -17,52 +17,8 @@ class Calculator {
    *
    * @param {Object} screen Dom node of calculator's screen.
    */
-  constructor(screen) {
-    this._screen = screen;
-    this._screenValue = '';
+  constructor() {
     this._history = [];
-  }
-
-  /**
-   * @description Gets calculator's screen value.
-   */
-  get screenValue() {
-    return this._screenValue;
-  }
-
-  /**
-   * @description Adds val to value on screen.
-   *
-   * @param Value to be added to calculator's screen.
-   */
-  addToScreenValue(val) {
-    const lastNumEntered = this.screenValue.slice(this.screenValue.length - 1);
-
-    /*If the value entered is a dot, we should only added
-      if the number is not a float already and the last entered
-        value is a number*/
-    if (val === '.') {
-      if (!this.screenValue.includes('.') && !isNaN(lastNumEntered)) {
-        this._screenValue += val;
-      }
-    } else {
-      this._screenValue += val;
-    }
-    this.print();
-  }
-
-  /**
-   * @description Returns calculation history.
-   */
-  get getHistory() {
-    return this._history;
-  }
-
-  /**
-   * @description Prints value on calculator's sreen.
-   */
-  print() {
-    this._screen.innerHTML = this.screenValue;
   }
 
   /**
@@ -75,25 +31,24 @@ class Calculator {
   }
 
   /**
-   * @description Clears calculator's screen.
+   * @description Returns calculation history.
    */
-  clearScreen() {
-    this._screenValue = '';
-    this._screen.innerHTML = '';
+  get getHistory() {
+    return this._history;
+  }
+
+  /**
+   * @description Clears calculator history
+   */
+  clearHistory() {
+    this._history = [];
   }
 
   /**
    * @description Performs calculation.
    */
-  calculate() {
-    const result = eval(this._screen.innerHTML.replace('x', '*'));
-
-    //if there is a valid result to show
-    if (typeof result != 'undefined') {
-      this.clearScreen();
-      this.addToScreenValue(result);
-      this.addToHistory(result);
-    }
+  calculateResult(expression) {
+    return eval(expression);
   }
 }
 
