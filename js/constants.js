@@ -4,7 +4,7 @@
 
 const CALCULATOR = document.querySelector('#calculator');
 const SCREEN = document.querySelector('#calculator .screen');
-const BTN_EQUALS = document.querySelector('#calculator .eval');
-const BTN_CLEAR = document.querySelector('#calculator .clear');
+const BTN_EQUALS_CLASS = 'eval';
+const BTN_CLEAR_CLASS = 'clear';
 
-export { CALCULATOR, SCREEN, BTN_EQUALS, BTN_CLEAR };
+export { CALCULATOR, SCREEN, BTN_EQUALS_CLASS, BTN_CLEAR_CLASS };

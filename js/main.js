@@ -1,5 +1,19 @@
-import { CALCULATOR, SCREEN, BTN_EQUALS, BTN_CLEAR } from './constants.js';
+import { Calculator } from './components/Calculator.js';
+import {
+  CALCULATOR,
+  SCREEN,
+  BTN_EQUALS_CLASS,
+  BTN_CLEAR_CLASS
+} from './constants.js';
 
-CALCULATOR.addEventListener('click', e => print(e.target.innerText));
+const calculator = new Calculator(SCREEN);
 
-BTN_CLEAR.addEventListener('click', () => (SCREEN.innerHTML = ''));
+const calculatorClickHandler = e => {
+  if (e.target.classList.contains(BTN_CLEAR_CLASS)) calculator.clearScreen();
+  else if (e.target.classList.contains(BTN_EQUALS_CLASS))
+    calculator.calculate();
+  else calculator.print(e.target.innerText);
+};
+
+//Event delegation
+CALCULATOR.addEventListener('click', calculatorClickHandler);

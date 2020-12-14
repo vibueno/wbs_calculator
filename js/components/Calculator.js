@@ -2,34 +2,65 @@
  * @module Calculator
  */
 
-import { SCREEN } from './constants.js';
-
 /**
  * @class
  * @description Calculator
+ *
+ * @property {Object} _screen  DOM node of calculator's screen.
+ * @property {Array}  _history list of results of calculations.
  */
-class Calculator (){
-  constructor(){
+class Calculator {
+  /**
+   * @constructor
+   * @description Creates a new Calculator.
+   *
+   * @param {Object} screen Dom node of calculator's screen.
+   */
+  constructor(screen) {
+    this._screen = screen;
+    this._history = [];
   }
 
-  print(val){
-    SCREEN.innerHTML += val;
+  /**
+   * @description Prints value on calculator's sreen.
+   *
+   * @param {String} val Value to be printed.
+   */
+  print(val) {
+    this._screen.innerHTML += val;
   }
 
-  set addtoHistory(){
-
+  /**
+   * @description Adds calculation to history.
+   *
+   * @param {String} Calculation to be added.
+   */
+  addToHistory(val) {
+    this._history.push(val);
   }
 
-  get getHistory(){
-
+  /**
+   * @description Returns calculation history.
+   */
+  get getHistory() {
+    return this._history;
   }
 
-  get getResult(){
-
+  /**
+   * @description Clears calculator's screen.
+   */
+  clearScreen() {
+    this._screen.innerHTML = '';
   }
 
-  clearScreen(){
-
+  /**
+   * @description Performs calculation.
+   */
+  calculate() {
+    const result = eval(this._screen.innerHTML.replace('x', '*'));
+    this._screen.innerHTML = result;
+    this.addToHistory(result);
   }
-
 }
+
+export { Calculator };
