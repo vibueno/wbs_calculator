@@ -12,7 +12,7 @@ const calculatorClickHandler = e => {
   if (e.target.classList.contains(BTN_CLEAR_CLASS)) calculator.clearScreen();
   else if (e.target.classList.contains(BTN_EQUALS_CLASS))
     calculator.calculate();
-  else calculator.print(e.target.innerText);
+  else calculator.addToScreenValue(e.target.innerText);
 };
 
 //Event delegation
