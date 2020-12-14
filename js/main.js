@@ -9,10 +9,12 @@ import {
 const calculator = new Calculator(SCREEN);
 
 const calculatorClickHandler = e => {
-  if (e.target.classList.contains(BTN_CLEAR_CLASS)) calculator.clearScreen();
-  else if (e.target.classList.contains(BTN_EQUALS_CLASS))
-    calculator.calculate();
-  else calculator.addToScreenValue(e.target.innerText);
+  if (e.target.tagName.toLowerCase() === 'span') {
+    if (e.target.classList.contains(BTN_CLEAR_CLASS)) calculator.clearScreen();
+    else if (e.target.classList.contains(BTN_EQUALS_CLASS))
+      calculator.calculate();
+    else calculator.addToScreenValue(e.target.innerText);
+  }
 };
 
 //Event delegation
