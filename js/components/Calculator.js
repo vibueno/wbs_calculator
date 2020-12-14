@@ -6,39 +6,35 @@
  * @class
  * @description Calculator
  *
- * @property {Object} _screen       DOM node of calculator's screen.
- * @property {Number} _screenValue  Current value shown on screen.
- * @property {Array}  _history      List of results of calculations.
+ * @property {Array}  _history  List of results of calculations.
  */
 class Calculator {
   /**
    * @constructor
    * @description Creates a new Calculator.
-   *
-   * @param {Object} screen Dom node of calculator's screen.
    */
   constructor() {
     this._history = [];
   }
 
   /**
-   * @description Adds calculation to history.
+   * @description Adds value to history.
    *
-   * @param {String} Calculation to be added.
+   * @param {String} Value to be added.
    */
   addToHistory(val) {
     this._history.push(val);
   }
 
   /**
-   * @description Returns calculation history.
+   * @description Returns calculator history.
    */
   get getHistory() {
     return this._history;
   }
 
   /**
-   * @description Clears calculator history
+   * @description Clears calculator history.
    */
   clearHistory() {
     this._history = [];
@@ -47,7 +43,7 @@ class Calculator {
   /**
    * @description Performs calculation.
    */
-  calculateResult(expression) {
+  calculate(expression) {
     return eval(expression);
   }
 }

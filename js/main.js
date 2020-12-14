@@ -10,6 +10,12 @@ import { functions } from './functions.js';
 
 const calculator = new Calculator();
 
+/**
+ * @description Handles click even on calculator.
+ *
+ * @param {Object} e Event object.
+ */
+
 const calculatorClickHandler = e => {
   if (e.target.tagName.toLowerCase() === 'span') {
     const button = e.target;
@@ -29,7 +35,7 @@ const calculatorClickHandler = e => {
       //deletes leading 0's of operand after operator
       expression = expression.replace(/([\+\-\*\/])0+([^.])/g, '$1$2');
 
-      const result = calculator.calculateResult(expression).toString();
+      const result = calculator.calculate(expression).toString();
       if (typeof result != 'undefined') {
         calculator.addToHistory(SCREEN.innerText);
         calculator.addToHistory(result);

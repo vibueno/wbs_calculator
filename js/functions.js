@@ -8,10 +8,10 @@ const functions = {
   /**
    * @description Prints value on calculator's sreen.
    *
-   * @param val Value to be added to the string shown on screen
+   * @param val Value to be added to the string shown on screen.
    */
   printScreen: val => {
-    //checks if the value is a dot and whether it should be printed
+    //when the value is a dot, we need to check whether it should be printed
     if (val === '.') {
       const lastChar = SCREEN.innerHTML.slice(SCREEN.innerHTML.length - 1);
 
