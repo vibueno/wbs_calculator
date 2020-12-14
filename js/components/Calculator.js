@@ -87,9 +87,13 @@ class Calculator {
    */
   calculate() {
     const result = eval(this._screen.innerHTML.replace('x', '*'));
-    this.clearScreen();
-    this.addToScreenValue(result);
-    this.addToHistory(result);
+
+    //if there is a valid result to show
+    if (typeof result != 'undefined') {
+      this.clearScreen();
+      this.addToScreenValue(result);
+      this.addToHistory(result);
+    }
   }
 }
 
