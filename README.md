@@ -7,7 +7,7 @@
 
 ## Description
 
-This project has been created during the bootcamp at WBS Coding School.
+This project was developed during the _Full-Stack Web & App Development_ training at [WBS Coding School](https://www.wbscodingschool.com/).
 
 ## Libraries
 
